@@ -1,0 +1,58 @@
+Dropwizard is a set of tools and framework for buildinhg RESTful services.
+Helps package applications to be easily deployable in a production environment as standalone services.
+
+List of libraries
+--Jetty-jetty server is invoked as an standalone service.no need for deployment of applications to a server
+--Jersey-deafult framework for building RESTful services.
+--Jackson-JSON format handling
+--Metrics-for exposing application metrics through HTTP endpoints.
+--Guave-provides nymber of java classes
+--Logback and Slf4j-used for better logging mechanisms
+--Freemarker and Mustache-template engines for building user interface
+
+
+--uses Maven
+
+Define Configuration Class
+--stores configurations in YAML files
+--configuration.yml in application's root folder which is deserialized to an instance of application's configuration class.
+--class DropwizardConfiguration extends Configuration
+
+Defining an application class
+--brings the application up and reaady for use.
+--override the run() method of dropwizard
+
+Define a representation class
+--based on the JSON file format using Jackson
+
+Define a resource class
+--Dropwizard uses JAX-RS implementation for URI mapping.URI-uniform resource identifier
+
+Registering a resource
+--resources are initialized with jersey library
+
+Service layer
+--for better exception handling and to be independent of the data store engine
+--called from resource layer
+
+Dropwizard supports JDBI and Hibernate
+
+Health Checking-Dropwizard provides native health checking
+
+Adding authentication
+--Dropwizard supports basic authentication and OAuth
+--two important interfaces which need to be implemented
+  -->Authenticator-authenticate()
+  	--checks whether the access token is valid
+  	--if valid returns principal which is user with role
+  -->Authorizer-authorize()
+  	--checks whether the principal's user has enough permission to access a resource
+
+Unit tests in Dropwizard
+--check for representation-write name and code to JSON file,get it back and check for equality
+--check for resource-test all the operations that can be done on resource
+
+Important points:-
+For creating dropwizard archetype using intelliJ please watch this video 
+https://youtu.be/doz1HzxLUkU
+just cahne the version to 2.0.9
