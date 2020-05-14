@@ -3,8 +3,8 @@
 How to start the HelloDropWizard application
 ---
 
-1. Run `mvn clean install` to build your application
-1. Start application with `java -jar target/HelloDropWizard-1.0-SNAPSHOT.jar server config.yml`
+1. Go to Edit configurations in run menu select HelloDropwizardWorldApplication class as main class and pass server config.yml as parameters.
+1. Run HelloDropwizarWorldApplication
 1. To check that your application is running enter url `http://localhost:8080`
 
 Health Check
